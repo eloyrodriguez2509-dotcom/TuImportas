@@ -1,0 +1,4 @@
+.header {
+  background: var(--crema);                    /* fondo de la cabecera */
+  border-bottom: 2px solid var(--verde-oscuro); /* línea recta que la separa del resto de la página */
+}

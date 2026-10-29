@@ -1,0 +1,90 @@
+:root {
+  /* Paleta */
+  --crema: #faf7f2;
+  --verde-primario: #3f7d78;
+  --verde-oscuro: #2c5a56;
+  --verde-suave: #dcebe8;
+  --lavanda: #e6e1f2;
+  --acento: #e8b89d;
+  --texto: #1f2a37;
+  --crisis: #a63d2f;
+
+  /* Tipografías */
+  --fuente-titulos: "Lora", serif;
+  --fuente-texto: "Inter", sans-serif;
+
+  /*Transiciones*/
+  --transicion: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--crema);
+  color: var(--texto);
+  font-family: var(--fuente-texto);
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  background: var(--verde-oscuro);
+  color: var(--crema);
+  font: 600 16px/24px var(--fuente-texto);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform var(--transicion),
+    box-shadow var(--transicion);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgb(44 90 86 / 0.2);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 3px;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--verde-suave);
+  color: var(--verde-oscuro);
+  transition: transform var(--transicion);
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon {
+  transition:
+    transform var(--transicion),
+    box-shadow var(--transicion);
+}
+
+.icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgb(44 90 86 / 0.2);
+}
