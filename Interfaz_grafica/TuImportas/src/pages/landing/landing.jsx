@@ -1,7 +1,7 @@
 import "./landing.css";
 import fotoJavier from "../../assets/Javier_Gonzales.png";
 import fotoJoseManuel from "../../assets/Jose_Manuel.png";
-import fotoAlejandroPalacios from "../../assets/fotoAlejandro_Palacios.png";
+import fotoAlejandroPalacios from "../../assets/Alejandro_Palacios.png";
 
 const trustItems = [
   {
