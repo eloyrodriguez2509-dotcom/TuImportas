@@ -1,5 +1,6 @@
 import "./landing.css";
 import fotoJavier from "../../assets/Javier_Gonzales.png";
+import fotoJoseManuel from "../../assets/Jose_Manuel.png";
 
 const trustItems = [
   {
@@ -49,7 +50,7 @@ const profesionales = [
     especialidad: "Especialidad",
     descripcion:
       "Trabajo de manera clara y cercana, sin presionarte en ningún momento a hablar ni a expresar tus emociones.",
-    foto: fotoJavier,
+    foto: fotoJoseManuel,
   },
   {
     id: 3,
