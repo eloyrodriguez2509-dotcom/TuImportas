@@ -1,22 +1,35 @@
 .hero {
   display: flex;
-  flex-direction: column;
-  align-items: baseline;
+  justify-content: space-between;
+  align-items: center;
   gap: 24px;
   padding: 64px 24px;
 }
 
+.hero-contenido {
+  display: grid;
+  justify-items: start;
+  gap: 24px;
+}
+
 .hero-title {
+  margin: 0;
   font: 600 44px/52px var(--fuente-titulos);
   color: var(--verde-oscuro);
 }
 
 .hero-texto {
-  font-size: 18px;
+  margin: 0;
+  line-height: 28px;
 }
 
-.hero-btn.btn {
+.hero-btn {
   margin-top: 8px;
+}
+
+.hero-animacion {
+  width: 560px;
+  height: 560px;
 }
 
 .trust {
@@ -159,8 +172,14 @@
 
 @media (max-width: 768px) {
   .hero {
+    grid-template-columns: 1fr;
     min-height: auto;
     padding: 48px 20px;
+    text-align: center;
+  }
+
+  .hero-contenido {
+    justify-items: center;
   }
 
   .hero-title {
@@ -170,8 +189,8 @@
 
   .hero-texto {
     font-size: 16px;
-    line-height: 26px;
   }
+
   .trust-list {
     grid-template-columns: 1fr;
   }

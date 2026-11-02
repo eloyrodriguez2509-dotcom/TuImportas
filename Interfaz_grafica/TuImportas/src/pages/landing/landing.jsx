@@ -2,6 +2,7 @@ import "./landing.css";
 import fotoJavier from "../../assets/Javier_Gonzales.png";
 import fotoJoseManuel from "../../assets/Jose_Manuel.png";
 import fotoAlejandroPalacios from "../../assets/Alejandro_Palacios.png";
+import Animacion from "../../components/animaciones/animaciones";
 
 const trustItems = [
   {
@@ -67,13 +68,16 @@ function Landing() {
   return (
     <main>
       <section className="hero">
-        <h1 className="hero-title">Encuentra a tu acompañante ideal</h1>
-        <p className="hero-texto">
-          Empecemos poco a poco y conoce a la persona que te ayude
-        </p>
-        <button type="button" className="btn hero-btn">
-          Quiero sentirme mejor
-        </button>
+        <div className="hero-contenido">
+          <h1 className="hero-title">Encuentra a tu acompañante ideal</h1>
+          <p className="hero-texto">
+            Empecemos poco a poco y conoce a la persona que te ayude
+          </p>
+          <button type="button" className="btn hero-btn">
+            Quiero sentirme mejor
+          </button>
+        </div>
+        <Animacion src="/animaciones/Chica_Sentada.json" className="hero-animacion"/>
       </section>
 
       <section className="mascota"></section>
