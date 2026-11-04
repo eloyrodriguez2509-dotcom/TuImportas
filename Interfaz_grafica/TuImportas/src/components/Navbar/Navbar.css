@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   width: min(100% - 32px, 1100px);
-  margin: 16px auto;
+  margin:  auto;
   padding: 20px 32px;
   background: var(--crema);
   border-radius: 28px;
