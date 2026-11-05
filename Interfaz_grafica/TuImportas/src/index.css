@@ -1,5 +1,4 @@
 :root {
-  /* Paleta */
   --crema: #fffbf5;
   --verde-primario: #3f7d78;
   --verde-oscuro: #2c5a56;
@@ -9,12 +8,11 @@
   --texto: #1f2a37;
   --crisis: #a63d2f;
 
-  /* Tipografías */
   --fuente-titulos: "Lora", serif;
   --fuente-texto: "Inter", sans-serif;
 
-  /*Transiciones*/
   --transicion: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  --sombra-hover: 0 6px 16px rgb(44 90 86 / 0.2);
 }
 
 * {
@@ -25,9 +23,12 @@ body {
   margin: 0;
   background: var(--crema);
   color: var(--texto);
-  font-family: var(--fuente-texto);
-  font-size: 16px;
-  line-height: 26px;
+  font: 16px/26px var(--fuente-texto);
+}
+
+:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 3px;
 }
 
 .btn {
@@ -40,19 +41,6 @@ body {
   font: 600 16px/24px var(--fuente-texto);
   text-decoration: none;
   cursor: pointer;
-  transition:
-    transform var(--transicion),
-    box-shadow var(--transicion);
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgb(44 90 86 / 0.2);
-}
-
-:focus-visible {
-  outline: 3px solid var(--acento);
-  outline-offset: 3px;
 }
 
 .icon {
@@ -65,7 +53,17 @@ body {
   border-radius: 50%;
   background: var(--verde-suave);
   color: var(--verde-oscuro);
-  transition: transform var(--transicion);
+}
+
+.btn,
+.icon {
+  transition: translate var(--transicion), box-shadow var(--transicion);
+}
+
+.btn:hover,
+.icon:hover {
+  translate: 0 -3px;
+  box-shadow: var(--sombra-hover);
 }
 
 .icon svg {
@@ -76,17 +74,6 @@ body {
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-}
-
-.icon {
-  transition:
-    transform var(--transicion),
-    box-shadow var(--transicion);
-}
-
-.icon:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgb(44 90 86 / 0.2);
 }
 
 .link {

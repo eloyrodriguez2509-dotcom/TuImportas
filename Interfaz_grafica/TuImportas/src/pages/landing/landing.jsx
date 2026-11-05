@@ -1,8 +1,14 @@
 import "./landing.css";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import fotoJavier from "../../assets/Javier_Gonzales.png";
 import fotoJoseManuel from "../../assets/Jose_Manuel.png";
 import fotoAlejandroPalacios from "../../assets/Alejandro_Palacios.png";
 import Animacion from "../../components/animaciones/animaciones";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const trustItems = [
   {
@@ -65,8 +71,37 @@ const profesionales = [
 ];
 
 function Landing() {
+  const contenedor = useRef(null);
+
+useGSAP(() => {
+  const mm = gsap.matchMedia();
+
+  mm.add("all", () => {
+    gsap.from(".hero-contenido > *, .hero-animacion", {
+      y: 24,
+      opacity: 0,
+      duration: 0.9,
+      ease: "power2.out",
+      stagger: 0.12,
+    });
+
+    gsap.utils.toArray(".trust, .ayudar, .profesionales").forEach((seccion) => {
+      gsap.from(
+        seccion.querySelectorAll(".trust-item, .ayudar-contenido > *, .ayudar-ilustracion, .profesionales-titulo, .profesional-tarjeta"),
+        {
+          y: 24,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          stagger: 0.12,
+          scrollTrigger: { trigger: seccion, start: "top 80%" },
+        }
+      );
+    });
+  });
+}, { scope: contenedor });
   return (
-    <main>
+    <main ref={contenedor}>
       <section className="hero">
         <div className="hero-contenido">
           <h1 className="hero-title">Encuentra a tu acompañante ideal</h1>
@@ -77,7 +112,10 @@ function Landing() {
             Quiero sentirme mejor
           </button>
         </div>
-        <Animacion src="/animaciones/Chica_Sentada.json" className="hero-animacion"/>
+        <Animacion
+          src="/animaciones/Chica_Sentada.json"
+          className="hero-animacion"
+        />
       </section>
 
       <section className="mascota"></section>
@@ -99,13 +137,20 @@ function Landing() {
       </section>
 
       <section className="ayudar">
-        <h1 className="ayudar-title">
-          Esta es tu oportunidad para cambiar el mundo
-        </h1>
-        <p className="ayudar-text">
-          Queremos que crezcas para ayudarte a ti y a las personas
-        </p>
-        <button className="btn ayudar-btn">Quiero ser parte del cambio</button>
+        <div className="ayudar-contenido">
+          <h2 className="ayudar-title">Esta es tu oportunidad</h2>
+          <p className="ayudar-text">
+            Queremos que crezcas para ayudarte a ti y a las personas
+          </p>
+          <button type="button" className="btn ayudar-btn">
+            Quiero ser parte del cambio
+          </button>
+        </div>
+        <Animacion
+          src="/animaciones/Terapia.json"
+          className="ayudar-ilustracion"
+          loop
+        />
       </section>
 
       <section className="profesionales">
