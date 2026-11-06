@@ -70,36 +70,46 @@ const profesionales = [
   },
 ];
 
+const aparecer = {
+  y: 24,
+  opacity: 0,
+  ease: "power2.out",
+  stagger: 0.12,
+  clearProps: "all",
+};
+
 function Landing() {
   const contenedor = useRef(null);
 
-useGSAP(() => {
-  const mm = gsap.matchMedia();
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
 
-  mm.add("all", () => {
-    gsap.from(".hero-contenido > *, .hero-animacion", {
-      y: 24,
-      opacity: 0,
-      duration: 0.9,
-      ease: "power2.out",
-      stagger: 0.12,
-    });
+      mm.add("all", () => {
+        gsap.from(".hero-contenido > *, .hero-animacion", {
+          ...aparecer,
+          duration: 0.9,
+        });
 
-    gsap.utils.toArray(".trust, .ayudar, .profesionales").forEach((seccion) => {
-      gsap.from(
-        seccion.querySelectorAll(".trust-item, .ayudar-contenido > *, .ayudar-ilustracion, .profesionales-titulo, .profesional-tarjeta"),
-        {
-          y: 24,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          stagger: 0.12,
-          scrollTrigger: { trigger: seccion, start: "top 80%" },
-        }
-      );
-    });
-  });
-}, { scope: contenedor });
+        gsap.utils
+          .toArray(".trust, .ayudar, .profesionales")
+          .forEach((seccion) => {
+            gsap.from(
+              seccion.querySelectorAll(
+                ".trust-item, .ayudar-contenido > *, .ayudar-ilustracion, .profesionales-titulo, .profesional-tarjeta",
+              ),
+              {
+                ...aparecer,
+                duration: 0.8,
+                scrollTrigger: { trigger: seccion, start: "top 80%" },
+              },
+            );
+          });
+      });
+    },
+    { scope: contenedor },
+  );
+
   return (
     <main ref={contenedor}>
       <section className="hero">
@@ -117,8 +127,6 @@ useGSAP(() => {
           className="hero-animacion"
         />
       </section>
-
-      <section className="mascota"></section>
 
       <section className="trust">
         <ul className="trust-list">
