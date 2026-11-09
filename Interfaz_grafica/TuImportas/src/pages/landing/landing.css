@@ -1,9 +1,9 @@
 .hero,
 .ayudar {
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 24px;
+  padding-block: 32px;
 }
 
 .hero-contenido,
@@ -15,9 +15,7 @@
 
 .hero-animacion,
 .ayudar-ilustracion {
-  width: min(100%, 560px);
   aspect-ratio: 1;
-  flex-shrink: 0;
 }
 
 .hero-title,
@@ -40,8 +38,8 @@
 }
 
 .trust {
-  margin-top: 50px;
-  padding: 32px 24px;
+  margin-bottom: -1px;
+  padding: 52px 0;
   background: var(--verde-suave);
 }
 
@@ -50,8 +48,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  max-width: 1100px;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -80,23 +77,23 @@
 }
 
 .profesionales {
-  padding: 64px 24px;
+  padding: 40px 0;
   background: var(--verde-suave);
 }
 
+
 .profesionales-titulo {
-  margin: 0 0 32px;
+  margin: 0 0 24px;
   text-align: center;
   font: 600 32px/40px var(--fuente-titulos);
   color: var(--verde-oscuro);
 }
-
 .profesional-tarjeta {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding: 32px 24px;
+  padding: 24px;
   border-radius: 16px;
   background: var(--crema);
   text-align: center;
@@ -111,9 +108,9 @@
 }
 
 .profesional-foto {
-  width: 96px;
-  height: 96px;
-  margin-bottom: 8px;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 4px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -133,8 +130,7 @@
 @media (max-width: 768px) {
   .hero,
   .ayudar {
-    flex-direction: column;
-    padding: 48px 20px;
+    padding: 48px;
     text-align: center;
   }
 
@@ -143,8 +139,9 @@
     justify-items: center;
   }
 
-  .hero-animacion {
-    width: min(100%, 320px);
+  .hero-animacion,
+  .ayudar-ilustracion {
+    max-width: 320px;
   }
 
   .hero-title,

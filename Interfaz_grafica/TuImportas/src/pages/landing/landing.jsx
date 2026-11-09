@@ -112,70 +112,86 @@ function Landing() {
 
   return (
     <main ref={contenedor}>
-      <section className="hero">
-        <div className="hero-contenido">
-          <h1 className="hero-title">Encuentra a tu acompañante ideal</h1>
-          <p className="hero-texto">
-            Empecemos poco a poco y conoce a la persona que te ayude
-          </p>
-          <button type="button" className="btn hero-btn">
-            Quiero sentirme mejor
-          </button>
-        </div>
-        <Animacion
-          src="/animaciones/Chica_Sentada.json"
-          className="hero-animacion"
-        />
-      </section>
+      <div className="pagina pagina-inicio">
+        <section className="hero">
+          <div className="container dividida">
+            <div className="hero-contenido">
+              <h1 className="hero-title">Encuentra a tu acompañante ideal</h1>
+              <p className="hero-texto">
+                Empecemos poco a poco y conoce a la persona que te ayude
+              </p>
+              <button type="button" className="btn hero-btn">
+                Quiero sentirme mejor
+              </button>
+            </div>
+            <Animacion
+              src="/animaciones/Chica_Sentada.json"
+              className="hero-animacion ilustracion"
+            />
+          </div>
+        </section>
 
-      <section className="trust">
-        <ul className="trust-list">
-          {trustItems.map((item) => (
-            <li key={item.title} className="trust-item">
-              <span className="icon" aria-hidden="true">
-                {item.icon}
-              </span>
-              <div>
-                <p className="trust-title">{item.title}</p>
-                <p className="trust-texto">{item.text}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
+        <section className="trust">
+          <div className="container">
+            <ul className="trust-list">
+              {trustItems.map((item) => (
+                <li key={item.title} className="trust-item">
+                  <span className="icon" aria-hidden="true">
+                    {item.icon}
+                  </span>
+                  <div>
+                    <p className="trust-title">{item.title}</p>
+                    <p className="trust-texto">{item.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </div>
 
-      <section className="ayudar">
-        <div className="ayudar-contenido">
-          <h2 className="ayudar-title">Esta es tu oportunidad</h2>
-          <p className="ayudar-text">
-            Queremos que crezcas para ayudarte a ti y a las personas
-          </p>
-          <button type="button" className="btn ayudar-btn">
-            Quiero ser parte del cambio
-          </button>
-        </div>
-        <Animacion
-          src="/animaciones/Terapia.json"
-          className="ayudar-ilustracion"
-          loop
-        />
-      </section>
+      <div className="pagina">
+        <section className="ayudar">
+          <div className="container dividida">
+            <div className="ayudar-contenido">
+              <h2 className="ayudar-title">Esta es tu oportunidad</h2>
+              <p className="ayudar-text">
+                Queremos que crezcas para ayudarte a ti y a las personas
+              </p>
+              <button type="button" className="btn ayudar-btn">
+                Quiero ser parte del cambio
+              </button>
+            </div>
+            <Animacion
+              src="/animaciones/Terapia.json"
+              className="ayudar-ilustracion ilustracion"
+              loop
+            />
+          </div>
+        </section>
 
-      <section className="profesionales">
-        <h2 className="profesionales-titulo">
-          Conoce a nuestros profesionales
-        </h2>
-        <ul className="profesionales-tarjetas">
-          {profesionales.map((p) => (
-            <li key={p.id} className="profesional-tarjeta">
-              <img src={p.foto} alt={p.nombre} className="profesional-foto" />
-              <h3 className="profesional-nombre">{p.nombre}</h3>
-              <p className="profesional-especialidad">{p.especialidad}</p>
-              <p className="profesional-descripcion">{p.descripcion}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
+        <section className="profesionales">
+          <div className="container">
+            <h2 className="profesionales-titulo">
+              Conoce a nuestros profesionales
+            </h2>
+            <ul className="profesionales-tarjetas">
+              {profesionales.map((p) => (
+                <li key={p.id} className="profesional-tarjeta">
+                  <img
+                    src={p.foto}
+                    alt={p.nombre}
+                    className="profesional-foto"
+                  />
+                  <h3 className="profesional-nombre">{p.nombre}</h3>
+                  <p className="profesional-especialidad">{p.especialidad}</p>
+                  <p className="profesional-descripcion">{p.descripcion}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

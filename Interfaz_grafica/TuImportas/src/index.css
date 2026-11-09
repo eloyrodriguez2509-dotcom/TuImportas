@@ -98,3 +98,49 @@ body {
 .link:focus-visible::after {
   transform: scaleX(1);
 }
+
+:root {
+  --page-width: 1200px;
+  --page-padding: clamp(1.25rem, 5vw, 4rem);  
+  --altura-header: 97px;}
+
+.container {
+  width: 100%;
+  max-width: var(--page-width);
+  margin-inline: auto;
+  padding-inline: var(--page-padding);
+}
+
+.pagina {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pagina-inicio {
+  min-height: calc(100svh - var(--altura-header));
+}
+
+.dividida {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+.ilustracion {
+  width: 100%;
+  max-width: min(480px, 38svh);
+  justify-self: end;
+}
+
+@media (max-width: 768px) {
+  .dividida {
+    grid-template-columns: 1fr;
+  }
+
+  .ilustracion {
+    justify-self: center;
+  }
+  
+}
